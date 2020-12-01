@@ -1,0 +1,86 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.600 ns
+From           : push
+To             : winner[1]~reg0
+From Clock     : --
+To Clock       : push
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 43.100 ns
+From           : register:R_12|Q[0]
+To             : led_16_2[8]
+From Clock     : push
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 21.000 ns
+From           : push
+To             : led_16_1[0]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.300 ns
+From           : push
+To             : register:R_21|Q[3]
+From Clock     : --
+To Clock       : switch
+Failed Paths   : 0
+
+Type           : Clock Setup: 'push'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.49 MHz ( period = 69.000 ns )
+From           : register:R_12|Q[0]
+To             : winner[1]~reg0
+From Clock     : push
+To Clock       : push
+Failed Paths   : 0
+
+Type           : Clock Setup: 'switch'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 38.17 MHz ( period = 26.200 ns )
+From           : register:R_21|Q[0]
+To             : register:R_21|Q[3]
+From Clock     : switch
+To Clock       : switch
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 125.00 MHz ( period = 8.000 ns )
+From           : counter:produce_dice|count[1]
+To             : counter:produce_dice|count[1]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

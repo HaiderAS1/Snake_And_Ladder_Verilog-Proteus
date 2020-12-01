@@ -1,0 +1,637 @@
+Classic Timing Analyzer report for trial_2
+Thu Nov 26 19:12:38 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. Clock Setup: 'switch'
+  8. Clock Setup: 'push'
+  9. tsu
+ 10. tco
+ 11. tpd
+ 12. th
+ 13. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                      ;
++------------------------------+-------+---------------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                                    ; From                          ; To                            ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 14.600 ns                                      ; push                          ; winner[1]~reg0                ; --         ; push     ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 43.100 ns                                      ; register:R_12|Q[0]            ; led_16_2[8]                   ; push       ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 21.000 ns                                      ; push                          ; led_16_1[0]                   ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 0.300 ns                                       ; push                          ; register:R_21|Q[3]            ; --         ; switch   ; 0            ;
+; Clock Setup: 'push'          ; N/A   ; None          ; 14.49 MHz ( period = 69.000 ns )               ; register:R_12|Q[0]            ; winner[1]~reg0                ; push       ; push     ; 0            ;
+; Clock Setup: 'switch'        ; N/A   ; None          ; 38.17 MHz ( period = 26.200 ns )               ; register:R_21|Q[0]            ; register:R_21|Q[3]            ; switch     ; switch   ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[1] ; counter:produce_dice|count[1] ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                                ;                               ;                               ;            ;          ; 0            ;
++------------------------------+-------+---------------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K10TC144-4    ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; switch          ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; push            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                 ;
++-------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                          ; To                            ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[0] ; counter:produce_dice|count[0] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[1] ; counter:produce_dice|count[0] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[2] ; counter:produce_dice|count[2] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[1] ; counter:produce_dice|count[2] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[2] ; counter:produce_dice|count[1] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[1] ; counter:produce_dice|count[1] ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[2] ; counter:produce_dice|count[0] ; clk        ; clk      ; None                        ; None                      ; 1.800 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[0] ; counter:produce_dice|count[2] ; clk        ; clk      ; None                        ; None                      ; 1.800 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter:produce_dice|count[0] ; counter:produce_dice|count[1] ; clk        ; clk      ; None                        ; None                      ; 1.800 ns                ;
++-------+------------------------------------------------+-------------------------------+-------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'switch'                                                                                                                                                                                        ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From               ; To                 ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 38.17 MHz ( period = 26.200 ns )               ; register:R_21|Q[0] ; register:R_21|Q[3] ; switch     ; switch   ; None                        ; None                      ; 22.600 ns               ;
+; N/A   ; 38.91 MHz ( period = 25.700 ns )               ; register:R_21|Q[1] ; register:R_21|Q[3] ; switch     ; switch   ; None                        ; None                      ; 22.100 ns               ;
+; N/A   ; 40.98 MHz ( period = 24.400 ns )               ; register:R_21|Q[0] ; register:R_21|Q[0] ; switch     ; switch   ; None                        ; None                      ; 20.800 ns               ;
+; N/A   ; 40.98 MHz ( period = 24.400 ns )               ; register:R_21|Q[0] ; register:R_21|Q[1] ; switch     ; switch   ; None                        ; None                      ; 20.800 ns               ;
+; N/A   ; 41.32 MHz ( period = 24.200 ns )               ; register:R_22|Q[0] ; register:R_22|Q[3] ; switch     ; switch   ; None                        ; None                      ; 20.600 ns               ;
+; N/A   ; 41.84 MHz ( period = 23.900 ns )               ; register:R_21|Q[1] ; register:R_21|Q[0] ; switch     ; switch   ; None                        ; None                      ; 20.300 ns               ;
+; N/A   ; 41.84 MHz ( period = 23.900 ns )               ; register:R_21|Q[1] ; register:R_21|Q[1] ; switch     ; switch   ; None                        ; None                      ; 20.300 ns               ;
+; N/A   ; 42.19 MHz ( period = 23.700 ns )               ; register:R_22|Q[1] ; register:R_22|Q[3] ; switch     ; switch   ; None                        ; None                      ; 20.100 ns               ;
+; N/A   ; 42.37 MHz ( period = 23.600 ns )               ; register:R_21|Q[3] ; register:R_21|Q[3] ; switch     ; switch   ; None                        ; None                      ; 20.000 ns               ;
+; N/A   ; 44.25 MHz ( period = 22.600 ns )               ; register:R_21|Q[2] ; register:R_21|Q[3] ; switch     ; switch   ; None                        ; None                      ; 19.000 ns               ;
+; N/A   ; 44.25 MHz ( period = 22.600 ns )               ; register:R_22|Q[0] ; register:R_22|Q[0] ; switch     ; switch   ; None                        ; None                      ; 19.000 ns               ;
+; N/A   ; 44.25 MHz ( period = 22.600 ns )               ; register:R_22|Q[0] ; register:R_22|Q[1] ; switch     ; switch   ; None                        ; None                      ; 19.000 ns               ;
+; N/A   ; 45.25 MHz ( period = 22.100 ns )               ; register:R_22|Q[1] ; register:R_22|Q[0] ; switch     ; switch   ; None                        ; None                      ; 18.500 ns               ;
+; N/A   ; 45.25 MHz ( period = 22.100 ns )               ; register:R_22|Q[1] ; register:R_22|Q[1] ; switch     ; switch   ; None                        ; None                      ; 18.500 ns               ;
+; N/A   ; 45.87 MHz ( period = 21.800 ns )               ; register:R_21|Q[3] ; register:R_21|Q[0] ; switch     ; switch   ; None                        ; None                      ; 18.200 ns               ;
+; N/A   ; 45.87 MHz ( period = 21.800 ns )               ; register:R_21|Q[3] ; register:R_21|Q[1] ; switch     ; switch   ; None                        ; None                      ; 18.200 ns               ;
+; N/A   ; 46.30 MHz ( period = 21.600 ns )               ; register:R_22|Q[3] ; register:R_22|Q[3] ; switch     ; switch   ; None                        ; None                      ; 18.000 ns               ;
+; N/A   ; 48.08 MHz ( period = 20.800 ns )               ; register:R_21|Q[2] ; register:R_21|Q[0] ; switch     ; switch   ; None                        ; None                      ; 17.200 ns               ;
+; N/A   ; 48.08 MHz ( period = 20.800 ns )               ; register:R_21|Q[2] ; register:R_21|Q[1] ; switch     ; switch   ; None                        ; None                      ; 17.200 ns               ;
+; N/A   ; 48.54 MHz ( period = 20.600 ns )               ; register:R_22|Q[2] ; register:R_22|Q[3] ; switch     ; switch   ; None                        ; None                      ; 17.000 ns               ;
+; N/A   ; 50.00 MHz ( period = 20.000 ns )               ; register:R_22|Q[3] ; register:R_22|Q[0] ; switch     ; switch   ; None                        ; None                      ; 16.400 ns               ;
+; N/A   ; 50.00 MHz ( period = 20.000 ns )               ; register:R_22|Q[3] ; register:R_22|Q[1] ; switch     ; switch   ; None                        ; None                      ; 16.400 ns               ;
+; N/A   ; 52.63 MHz ( period = 19.000 ns )               ; register:R_22|Q[2] ; register:R_22|Q[0] ; switch     ; switch   ; None                        ; None                      ; 15.400 ns               ;
+; N/A   ; 52.63 MHz ( period = 19.000 ns )               ; register:R_22|Q[2] ; register:R_22|Q[1] ; switch     ; switch   ; None                        ; None                      ; 15.400 ns               ;
+; N/A   ; 75.19 MHz ( period = 13.300 ns )               ; register:R_21|Q[0] ; register:R_21|Q[2] ; switch     ; switch   ; None                        ; None                      ; 9.700 ns                ;
+; N/A   ; 75.19 MHz ( period = 13.300 ns )               ; register:R_22|Q[0] ; register:R_22|Q[2] ; switch     ; switch   ; None                        ; None                      ; 9.700 ns                ;
+; N/A   ; 78.13 MHz ( period = 12.800 ns )               ; register:R_21|Q[1] ; register:R_21|Q[2] ; switch     ; switch   ; None                        ; None                      ; 9.200 ns                ;
+; N/A   ; 78.13 MHz ( period = 12.800 ns )               ; register:R_22|Q[1] ; register:R_22|Q[2] ; switch     ; switch   ; None                        ; None                      ; 9.200 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns )               ; register:R_21|Q[3] ; register:R_21|Q[2] ; switch     ; switch   ; None                        ; None                      ; 7.100 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns )               ; register:R_22|Q[3] ; register:R_22|Q[2] ; switch     ; switch   ; None                        ; None                      ; 7.100 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns )               ; register:R_21|Q[2] ; register:R_21|Q[2] ; switch     ; switch   ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns )               ; register:R_22|Q[2] ; register:R_22|Q[2] ; switch     ; switch   ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; T                  ; T                  ; switch     ; switch   ; None                        ; None                      ; 1.800 ns                ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'push'                                                                                                                                                                        ;
++-------+----------------------------------+--------------------+----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From               ; To             ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+--------------------+----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 14.49 MHz ( period = 69.000 ns ) ; register:R_12|Q[0] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 30.900 ns               ;
+; N/A   ; 14.49 MHz ( period = 69.000 ns ) ; register:R_12|Q[0] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 30.900 ns               ;
+; N/A   ; 14.58 MHz ( period = 68.600 ns ) ; register:R_12|Q[1] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 14.58 MHz ( period = 68.600 ns ) ; register:R_12|Q[1] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 14.62 MHz ( period = 68.400 ns ) ; register:R_11|Q[1] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 30.600 ns               ;
+; N/A   ; 14.62 MHz ( period = 68.400 ns ) ; register:R_11|Q[0] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 30.600 ns               ;
+; N/A   ; 14.62 MHz ( period = 68.400 ns ) ; register:R_11|Q[1] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 30.600 ns               ;
+; N/A   ; 14.62 MHz ( period = 68.400 ns ) ; register:R_11|Q[0] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 30.600 ns               ;
+; N/A   ; 15.48 MHz ( period = 64.600 ns ) ; register:R_12|Q[3] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 28.700 ns               ;
+; N/A   ; 15.48 MHz ( period = 64.600 ns ) ; register:R_12|Q[3] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 28.700 ns               ;
+; N/A   ; 15.58 MHz ( period = 64.200 ns ) ; register:R_11|Q[3] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 28.500 ns               ;
+; N/A   ; 15.58 MHz ( period = 64.200 ns ) ; register:R_11|Q[3] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 28.500 ns               ;
+; N/A   ; 15.97 MHz ( period = 62.600 ns ) ; register:R_12|Q[2] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 27.700 ns               ;
+; N/A   ; 15.97 MHz ( period = 62.600 ns ) ; register:R_12|Q[2] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 27.700 ns               ;
+; N/A   ; 16.34 MHz ( period = 61.200 ns ) ; register:R_11|Q[2] ; winner[0]~reg0 ; push       ; push     ; None                        ; None                      ; 27.000 ns               ;
+; N/A   ; 16.34 MHz ( period = 61.200 ns ) ; register:R_11|Q[2] ; winner[1]~reg0 ; push       ; push     ; None                        ; None                      ; 27.000 ns               ;
++-------+----------------------------------+--------------------+----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; tsu                                                                                   ;
++-------+--------------+------------+--------+-------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From   ; To                            ; To Clock ;
++-------+--------------+------------+--------+-------------------------------+----------+
+; N/A   ; None         ; 14.600 ns  ; push   ; winner[0]~reg0                ; push     ;
+; N/A   ; None         ; 14.600 ns  ; push   ; winner[1]~reg0                ; push     ;
+; N/A   ; None         ; 5.200 ns   ; switch ; counter:produce_dice|count[0] ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; switch ; counter:produce_dice|count[2] ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; switch ; counter:produce_dice|count[1] ; clk      ;
+; N/A   ; None         ; 4.500 ns   ; push   ; register:R_22|Q[3]            ; switch   ;
+; N/A   ; None         ; 4.400 ns   ; push   ; register:R_22|Q[0]            ; switch   ;
+; N/A   ; None         ; 4.400 ns   ; push   ; register:R_22|Q[1]            ; switch   ;
+; N/A   ; None         ; 3.900 ns   ; push   ; register:R_21|Q[0]            ; switch   ;
+; N/A   ; None         ; 3.900 ns   ; push   ; register:R_21|Q[1]            ; switch   ;
+; N/A   ; None         ; 3.800 ns   ; push   ; register:R_21|Q[3]            ; switch   ;
++-------+--------------+------------+--------+-------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                         ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+--------------+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From               ; To           ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+--------------+------------+
+; N/A                                     ; None                                                ; 43.100 ns  ; register:R_12|Q[0] ; led_16_2[8]  ; push       ;
+; N/A                                     ; None                                                ; 43.000 ns  ; register:R_21|Q[0] ; led_16_1[0]  ; switch     ;
+; N/A                                     ; None                                                ; 43.000 ns  ; register:R_11|Q[1] ; led_16_1[0]  ; push       ;
+; N/A                                     ; None                                                ; 43.000 ns  ; register:R_11|Q[0] ; led_16_1[0]  ; push       ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_12|Q[1] ; led_16_2[8]  ; push       ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_21|Q[0] ; led_16_1[13] ; switch     ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_11|Q[1] ; led_16_1[13] ; push       ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_11|Q[0] ; led_16_1[13] ; push       ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_21|Q[0] ; led_16_1[10] ; switch     ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_11|Q[1] ; led_16_1[10] ; push       ;
+; N/A                                     ; None                                                ; 42.900 ns  ; register:R_11|Q[0] ; led_16_1[10] ; push       ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_12|Q[0] ; led_16_2[9]  ; push       ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_12|Q[0] ; led_16_2[7]  ; push       ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_12|Q[0] ; led_16_2[6]  ; push       ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_21|Q[0] ; led_16_1[5]  ; switch     ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_11|Q[1] ; led_16_1[5]  ; push       ;
+; N/A                                     ; None                                                ; 42.800 ns  ; register:R_11|Q[0] ; led_16_1[5]  ; push       ;
+; N/A                                     ; None                                                ; 42.700 ns  ; register:R_12|Q[0] ; led_16_2[10] ; push       ;
+; N/A                                     ; None                                                ; 42.700 ns  ; register:R_21|Q[0] ; led_16_1[4]  ; switch     ;
+; N/A                                     ; None                                                ; 42.700 ns  ; register:R_11|Q[1] ; led_16_1[4]  ; push       ;
+; N/A                                     ; None                                                ; 42.700 ns  ; register:R_11|Q[0] ; led_16_1[4]  ; push       ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_12|Q[1] ; led_16_2[9]  ; push       ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_12|Q[1] ; led_16_2[7]  ; push       ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_12|Q[1] ; led_16_2[6]  ; push       ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_21|Q[0] ; led_16_1[9]  ; switch     ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_11|Q[1] ; led_16_1[9]  ; push       ;
+; N/A                                     ; None                                                ; 42.600 ns  ; register:R_11|Q[0] ; led_16_1[9]  ; push       ;
+; N/A                                     ; None                                                ; 42.500 ns  ; register:R_12|Q[1] ; led_16_2[10] ; push       ;
+; N/A                                     ; None                                                ; 42.500 ns  ; register:R_21|Q[1] ; led_16_1[0]  ; switch     ;
+; N/A                                     ; None                                                ; 42.400 ns  ; register:R_21|Q[1] ; led_16_1[13] ; switch     ;
+; N/A                                     ; None                                                ; 42.400 ns  ; register:R_21|Q[1] ; led_16_1[10] ; switch     ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_12|Q[0] ; led_16_2[14] ; push       ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_12|Q[0] ; led_16_2[12] ; push       ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_12|Q[0] ; led_16_2[11] ; push       ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_12|Q[0] ; led_16_2[5]  ; push       ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_12|Q[0] ; led_16_2[1]  ; push       ;
+; N/A                                     ; None                                                ; 42.300 ns  ; register:R_21|Q[1] ; led_16_1[5]  ; switch     ;
+; N/A                                     ; None                                                ; 42.200 ns  ; register:R_12|Q[0] ; led_16_2[13] ; push       ;
+; N/A                                     ; None                                                ; 42.200 ns  ; register:R_12|Q[0] ; led_16_2[2]  ; push       ;
+; N/A                                     ; None                                                ; 42.200 ns  ; register:R_21|Q[1] ; led_16_1[4]  ; switch     ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_12|Q[1] ; led_16_2[14] ; push       ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_12|Q[1] ; led_16_2[12] ; push       ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_12|Q[1] ; led_16_2[11] ; push       ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_12|Q[1] ; led_16_2[5]  ; push       ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_12|Q[1] ; led_16_2[1]  ; push       ;
+; N/A                                     ; None                                                ; 42.100 ns  ; register:R_21|Q[1] ; led_16_1[9]  ; switch     ;
+; N/A                                     ; None                                                ; 42.000 ns  ; register:R_12|Q[1] ; led_16_2[13] ; push       ;
+; N/A                                     ; None                                                ; 42.000 ns  ; register:R_12|Q[1] ; led_16_2[2]  ; push       ;
+; N/A                                     ; None                                                ; 42.000 ns  ; register:R_21|Q[0] ; led_16_1[6]  ; switch     ;
+; N/A                                     ; None                                                ; 42.000 ns  ; register:R_11|Q[1] ; led_16_1[6]  ; push       ;
+; N/A                                     ; None                                                ; 42.000 ns  ; register:R_11|Q[0] ; led_16_1[6]  ; push       ;
+; N/A                                     ; None                                                ; 41.900 ns  ; register:R_12|Q[0] ; led_16_2[4]  ; push       ;
+; N/A                                     ; None                                                ; 41.900 ns  ; register:R_12|Q[0] ; led_16_2[3]  ; push       ;
+; N/A                                     ; None                                                ; 41.900 ns  ; register:R_12|Q[0] ; led_16_2[0]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_21|Q[0] ; led_16_1[12] ; switch     ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[1] ; led_16_1[12] ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[0] ; led_16_1[12] ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_21|Q[0] ; led_16_1[8]  ; switch     ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[1] ; led_16_1[8]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[0] ; led_16_1[8]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_21|Q[0] ; led_16_1[7]  ; switch     ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[1] ; led_16_1[7]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[0] ; led_16_1[7]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_21|Q[0] ; led_16_1[3]  ; switch     ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[1] ; led_16_1[3]  ; push       ;
+; N/A                                     ; None                                                ; 41.800 ns  ; register:R_11|Q[0] ; led_16_1[3]  ; push       ;
+; N/A                                     ; None                                                ; 41.700 ns  ; register:R_12|Q[1] ; led_16_2[4]  ; push       ;
+; N/A                                     ; None                                                ; 41.700 ns  ; register:R_12|Q[1] ; led_16_2[3]  ; push       ;
+; N/A                                     ; None                                                ; 41.700 ns  ; register:R_12|Q[1] ; led_16_2[0]  ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_12|Q[0] ; led_16_2[15] ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_21|Q[0] ; led_16_1[11] ; switch     ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[1] ; led_16_1[11] ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[0] ; led_16_1[11] ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_21|Q[1] ; led_16_1[6]  ; switch     ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_21|Q[0] ; led_16_1[2]  ; switch     ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[1] ; led_16_1[2]  ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[0] ; led_16_1[2]  ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_21|Q[0] ; led_16_1[1]  ; switch     ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[1] ; led_16_1[1]  ; push       ;
+; N/A                                     ; None                                                ; 41.500 ns  ; register:R_11|Q[0] ; led_16_1[1]  ; push       ;
+; N/A                                     ; None                                                ; 41.400 ns  ; register:R_22|Q[0] ; led_16_2[8]  ; switch     ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_12|Q[1] ; led_16_2[15] ; push       ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_21|Q[0] ; led_16_1[14] ; switch     ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_11|Q[1] ; led_16_1[14] ; push       ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_11|Q[0] ; led_16_1[14] ; push       ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_21|Q[1] ; led_16_1[12] ; switch     ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_21|Q[1] ; led_16_1[8]  ; switch     ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_21|Q[1] ; led_16_1[7]  ; switch     ;
+; N/A                                     ; None                                                ; 41.300 ns  ; register:R_21|Q[1] ; led_16_1[3]  ; switch     ;
+; N/A                                     ; None                                                ; 41.100 ns  ; register:R_22|Q[0] ; led_16_2[9]  ; switch     ;
+; N/A                                     ; None                                                ; 41.100 ns  ; register:R_22|Q[0] ; led_16_2[7]  ; switch     ;
+; N/A                                     ; None                                                ; 41.100 ns  ; register:R_22|Q[0] ; led_16_2[6]  ; switch     ;
+; N/A                                     ; None                                                ; 41.000 ns  ; register:R_22|Q[0] ; led_16_2[10] ; switch     ;
+; N/A                                     ; None                                                ; 41.000 ns  ; register:R_21|Q[1] ; led_16_1[11] ; switch     ;
+; N/A                                     ; None                                                ; 41.000 ns  ; register:R_21|Q[1] ; led_16_1[2]  ; switch     ;
+; N/A                                     ; None                                                ; 41.000 ns  ; register:R_21|Q[1] ; led_16_1[1]  ; switch     ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_22|Q[1] ; led_16_2[8]  ; switch     ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_12|Q[3] ; led_16_2[8]  ; push       ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_21|Q[0] ; led_16_1[15] ; switch     ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_11|Q[1] ; led_16_1[15] ; push       ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_11|Q[0] ; led_16_1[15] ; push       ;
+; N/A                                     ; None                                                ; 40.900 ns  ; register:R_11|Q[3] ; led_16_1[0]  ; push       ;
+; N/A                                     ; None                                                ; 40.800 ns  ; register:R_21|Q[1] ; led_16_1[14] ; switch     ;
+; N/A                                     ; None                                                ; 40.800 ns  ; register:R_11|Q[3] ; led_16_1[13] ; push       ;
+; N/A                                     ; None                                                ; 40.800 ns  ; register:R_11|Q[3] ; led_16_1[10] ; push       ;
+; N/A                                     ; None                                                ; 40.700 ns  ; register:R_11|Q[3] ; led_16_1[5]  ; push       ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[0] ; led_16_2[14] ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[0] ; led_16_2[12] ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[0] ; led_16_2[11] ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[1] ; led_16_2[9]  ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_12|Q[3] ; led_16_2[9]  ; push       ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[1] ; led_16_2[7]  ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_12|Q[3] ; led_16_2[7]  ; push       ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[1] ; led_16_2[6]  ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_12|Q[3] ; led_16_2[6]  ; push       ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[0] ; led_16_2[5]  ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_22|Q[0] ; led_16_2[1]  ; switch     ;
+; N/A                                     ; None                                                ; 40.600 ns  ; register:R_11|Q[3] ; led_16_1[4]  ; push       ;
+; N/A                                     ; None                                                ; 40.500 ns  ; register:R_22|Q[0] ; led_16_2[13] ; switch     ;
+; N/A                                     ; None                                                ; 40.500 ns  ; register:R_22|Q[1] ; led_16_2[10] ; switch     ;
+; N/A                                     ; None                                                ; 40.500 ns  ; register:R_12|Q[3] ; led_16_2[10] ; push       ;
+; N/A                                     ; None                                                ; 40.500 ns  ; register:R_22|Q[0] ; led_16_2[2]  ; switch     ;
+; N/A                                     ; None                                                ; 40.500 ns  ; register:R_11|Q[3] ; led_16_1[9]  ; push       ;
+; N/A                                     ; None                                                ; 40.400 ns  ; register:R_21|Q[1] ; led_16_1[15] ; switch     ;
+; N/A                                     ; None                                                ; 40.400 ns  ; register:R_21|Q[3] ; led_16_1[0]  ; switch     ;
+; N/A                                     ; None                                                ; 40.300 ns  ; register:R_21|Q[3] ; led_16_1[13] ; switch     ;
+; N/A                                     ; None                                                ; 40.300 ns  ; register:R_21|Q[3] ; led_16_1[10] ; switch     ;
+; N/A                                     ; None                                                ; 40.200 ns  ; register:R_22|Q[0] ; led_16_2[4]  ; switch     ;
+; N/A                                     ; None                                                ; 40.200 ns  ; register:R_22|Q[0] ; led_16_2[3]  ; switch     ;
+; N/A                                     ; None                                                ; 40.200 ns  ; register:R_22|Q[0] ; led_16_2[0]  ; switch     ;
+; N/A                                     ; None                                                ; 40.200 ns  ; register:R_21|Q[3] ; led_16_1[5]  ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_22|Q[1] ; led_16_2[14] ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_12|Q[3] ; led_16_2[14] ; push       ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_22|Q[1] ; led_16_2[12] ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_12|Q[3] ; led_16_2[12] ; push       ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_22|Q[1] ; led_16_2[11] ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_12|Q[3] ; led_16_2[11] ; push       ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_22|Q[1] ; led_16_2[5]  ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_12|Q[3] ; led_16_2[5]  ; push       ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_22|Q[1] ; led_16_2[1]  ; switch     ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_12|Q[3] ; led_16_2[1]  ; push       ;
+; N/A                                     ; None                                                ; 40.100 ns  ; register:R_21|Q[3] ; led_16_1[4]  ; switch     ;
+; N/A                                     ; None                                                ; 40.000 ns  ; register:R_22|Q[1] ; led_16_2[13] ; switch     ;
+; N/A                                     ; None                                                ; 40.000 ns  ; register:R_12|Q[3] ; led_16_2[13] ; push       ;
+; N/A                                     ; None                                                ; 40.000 ns  ; register:R_22|Q[1] ; led_16_2[2]  ; switch     ;
+; N/A                                     ; None                                                ; 40.000 ns  ; register:R_12|Q[3] ; led_16_2[2]  ; push       ;
+; N/A                                     ; None                                                ; 40.000 ns  ; register:R_21|Q[3] ; led_16_1[9]  ; switch     ;
+; N/A                                     ; None                                                ; 39.900 ns  ; register:R_12|Q[2] ; led_16_2[8]  ; push       ;
+; N/A                                     ; None                                                ; 39.900 ns  ; register:R_11|Q[3] ; led_16_1[6]  ; push       ;
+; N/A                                     ; None                                                ; 39.800 ns  ; register:R_22|Q[0] ; led_16_2[15] ; switch     ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_22|Q[1] ; led_16_2[4]  ; switch     ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_12|Q[3] ; led_16_2[4]  ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_22|Q[1] ; led_16_2[3]  ; switch     ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_12|Q[3] ; led_16_2[3]  ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_22|Q[1] ; led_16_2[0]  ; switch     ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_12|Q[3] ; led_16_2[0]  ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_11|Q[3] ; led_16_1[12] ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_11|Q[3] ; led_16_1[8]  ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_11|Q[3] ; led_16_1[7]  ; push       ;
+; N/A                                     ; None                                                ; 39.700 ns  ; register:R_11|Q[3] ; led_16_1[3]  ; push       ;
+; N/A                                     ; None                                                ; 39.600 ns  ; register:R_12|Q[2] ; led_16_2[9]  ; push       ;
+; N/A                                     ; None                                                ; 39.600 ns  ; register:R_12|Q[2] ; led_16_2[7]  ; push       ;
+; N/A                                     ; None                                                ; 39.600 ns  ; register:R_12|Q[2] ; led_16_2[6]  ; push       ;
+; N/A                                     ; None                                                ; 39.500 ns  ; register:R_12|Q[2] ; led_16_2[10] ; push       ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_11|Q[3] ; led_16_1[11] ; push       ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_21|Q[3] ; led_16_1[6]  ; switch     ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_11|Q[3] ; led_16_1[2]  ; push       ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_11|Q[3] ; led_16_1[1]  ; push       ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_21|Q[2] ; led_16_1[0]  ; switch     ;
+; N/A                                     ; None                                                ; 39.400 ns  ; register:R_11|Q[2] ; led_16_1[0]  ; push       ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_22|Q[1] ; led_16_2[15] ; switch     ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_12|Q[3] ; led_16_2[15] ; push       ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_21|Q[2] ; led_16_1[13] ; switch     ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_11|Q[2] ; led_16_1[13] ; push       ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_21|Q[2] ; led_16_1[10] ; switch     ;
+; N/A                                     ; None                                                ; 39.300 ns  ; register:R_11|Q[2] ; led_16_1[10] ; push       ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_11|Q[3] ; led_16_1[14] ; push       ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_21|Q[3] ; led_16_1[12] ; switch     ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_21|Q[3] ; led_16_1[8]  ; switch     ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_21|Q[3] ; led_16_1[7]  ; switch     ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_21|Q[2] ; led_16_1[5]  ; switch     ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_11|Q[2] ; led_16_1[5]  ; push       ;
+; N/A                                     ; None                                                ; 39.200 ns  ; register:R_21|Q[3] ; led_16_1[3]  ; switch     ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_12|Q[2] ; led_16_2[14] ; push       ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_12|Q[2] ; led_16_2[12] ; push       ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_12|Q[2] ; led_16_2[11] ; push       ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_12|Q[2] ; led_16_2[5]  ; push       ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_12|Q[2] ; led_16_2[1]  ; push       ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_21|Q[2] ; led_16_1[4]  ; switch     ;
+; N/A                                     ; None                                                ; 39.100 ns  ; register:R_11|Q[2] ; led_16_1[4]  ; push       ;
+; N/A                                     ; None                                                ; 39.000 ns  ; register:R_12|Q[2] ; led_16_2[13] ; push       ;
+; N/A                                     ; None                                                ; 39.000 ns  ; register:R_12|Q[2] ; led_16_2[2]  ; push       ;
+; N/A                                     ; None                                                ; 39.000 ns  ; register:R_21|Q[2] ; led_16_1[9]  ; switch     ;
+; N/A                                     ; None                                                ; 39.000 ns  ; register:R_11|Q[2] ; led_16_1[9]  ; push       ;
+; N/A                                     ; None                                                ; 38.900 ns  ; register:R_21|Q[3] ; led_16_1[11] ; switch     ;
+; N/A                                     ; None                                                ; 38.900 ns  ; register:R_21|Q[3] ; led_16_1[2]  ; switch     ;
+; N/A                                     ; None                                                ; 38.900 ns  ; register:R_21|Q[3] ; led_16_1[1]  ; switch     ;
+; N/A                                     ; None                                                ; 38.800 ns  ; register:R_22|Q[3] ; led_16_2[8]  ; switch     ;
+; N/A                                     ; None                                                ; 38.800 ns  ; register:R_11|Q[3] ; led_16_1[15] ; push       ;
+; N/A                                     ; None                                                ; 38.700 ns  ; register:R_12|Q[2] ; led_16_2[4]  ; push       ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                    ;              ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+--------------------+--------------+------------+
+
+
++-------------------------------------------------------------------+
+; tpd                                                               ;
++-------+-------------------+-----------------+------+--------------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From ; To           ;
++-------+-------------------+-----------------+------+--------------+
+; N/A   ; None              ; 21.000 ns       ; push ; led_16_1[0]  ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_2[9]  ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_2[8]  ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_2[7]  ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_2[6]  ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_1[13] ;
+; N/A   ; None              ; 20.900 ns       ; push ; led_16_1[10] ;
+; N/A   ; None              ; 20.800 ns       ; push ; led_16_2[10] ;
+; N/A   ; None              ; 20.800 ns       ; push ; led_16_1[5]  ;
+; N/A   ; None              ; 20.700 ns       ; push ; led_16_1[4]  ;
+; N/A   ; None              ; 20.600 ns       ; push ; led_16_1[9]  ;
+; N/A   ; None              ; 20.300 ns       ; push ; led_16_2[13] ;
+; N/A   ; None              ; 20.300 ns       ; push ; led_16_2[2]  ;
+; N/A   ; None              ; 20.100 ns       ; push ; led_16_2[14] ;
+; N/A   ; None              ; 20.100 ns       ; push ; led_16_2[12] ;
+; N/A   ; None              ; 20.100 ns       ; push ; led_16_2[11] ;
+; N/A   ; None              ; 20.100 ns       ; push ; led_16_2[5]  ;
+; N/A   ; None              ; 20.100 ns       ; push ; led_16_2[1]  ;
+; N/A   ; None              ; 20.000 ns       ; push ; led_16_2[4]  ;
+; N/A   ; None              ; 20.000 ns       ; push ; led_16_2[3]  ;
+; N/A   ; None              ; 20.000 ns       ; push ; led_16_2[0]  ;
+; N/A   ; None              ; 20.000 ns       ; push ; led_16_1[6]  ;
+; N/A   ; None              ; 19.800 ns       ; push ; led_16_1[12] ;
+; N/A   ; None              ; 19.800 ns       ; push ; led_16_1[8]  ;
+; N/A   ; None              ; 19.800 ns       ; push ; led_16_1[7]  ;
+; N/A   ; None              ; 19.800 ns       ; push ; led_16_1[3]  ;
+; N/A   ; None              ; 19.600 ns       ; push ; led_16_2[15] ;
+; N/A   ; None              ; 19.500 ns       ; push ; led_16_1[11] ;
+; N/A   ; None              ; 19.500 ns       ; push ; led_16_1[2]  ;
+; N/A   ; None              ; 19.500 ns       ; push ; led_16_1[1]  ;
+; N/A   ; None              ; 19.300 ns       ; push ; led_16_1[14] ;
+; N/A   ; None              ; 19.100 ns       ; push ; led_16_1[15] ;
++-------+-------------------+-----------------+------+--------------+
+
+
++---------------------------------------------------------------------------------------------+
+; th                                                                                          ;
++---------------+-------------+-----------+--------+-------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From   ; To                            ; To Clock ;
++---------------+-------------+-----------+--------+-------------------------------+----------+
+; N/A           ; None        ; 0.300 ns  ; push   ; register:R_21|Q[3]            ; switch   ;
+; N/A           ; None        ; 0.200 ns  ; push   ; register:R_21|Q[0]            ; switch   ;
+; N/A           ; None        ; 0.200 ns  ; push   ; register:R_21|Q[1]            ; switch   ;
+; N/A           ; None        ; -0.300 ns ; push   ; register:R_22|Q[0]            ; switch   ;
+; N/A           ; None        ; -0.300 ns ; push   ; register:R_22|Q[1]            ; switch   ;
+; N/A           ; None        ; -0.400 ns ; push   ; register:R_22|Q[3]            ; switch   ;
+; N/A           ; None        ; -1.100 ns ; switch ; counter:produce_dice|count[0] ; clk      ;
+; N/A           ; None        ; -1.100 ns ; switch ; counter:produce_dice|count[2] ; clk      ;
+; N/A           ; None        ; -1.100 ns ; switch ; counter:produce_dice|count[1] ; clk      ;
+; N/A           ; None        ; -2.800 ns ; push   ; winner[0]~reg0                ; push     ;
+; N/A           ; None        ; -2.800 ns ; push   ; winner[1]~reg0                ; push     ;
++---------------+-------------+-----------+--------+-------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Thu Nov 26 19:12:37 2020
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off trial_2 -c trial_2
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+    Info: Assuming node "switch" is an undefined clock
+    Info: Assuming node "push" is an undefined clock
+Info: Clock "clk" Internal fmax is restricted to 125.0 MHz between source register "counter:produce_dice|count[0]" and destination register "counter:produce_dice|count[0]"
+    Info: fmax restricted to Clock High delay (4.0 ns) plus Clock Low delay (4.0 ns) : restricted to 8.0 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C17; Fanout = 8; REG Node = 'counter:produce_dice|count[0]'
+            Info: 2: + IC(0.600 ns) + CELL(1.700 ns) = 2.300 ns; Loc. = LC7_C17; Fanout = 8; REG Node = 'counter:produce_dice|count[0]'
+            Info: Total cell delay = 1.700 ns ( 73.91 % )
+            Info: Total interconnect delay = 0.600 ns ( 26.09 % )
+        Info: - Smallest clock skew is 0.000 ns
+            Info: + Shortest clock path from clock "clk" to destination register is 5.300 ns
+                Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_126; Fanout = 3; CLK Node = 'clk'
+                Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC7_C17; Fanout = 8; REG Node = 'counter:produce_dice|count[0]'
+                Info: Total cell delay = 2.800 ns ( 52.83 % )
+                Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+            Info: - Longest clock path from clock "clk" to source register is 5.300 ns
+                Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_126; Fanout = 3; CLK Node = 'clk'
+                Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC7_C17; Fanout = 8; REG Node = 'counter:produce_dice|count[0]'
+                Info: Total cell delay = 2.800 ns ( 52.83 % )
+                Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+        Info: + Micro clock to output delay of source is 1.100 ns
+        Info: + Micro setup delay of destination is 2.500 ns
+Info: Clock "switch" has Internal fmax of 38.17 MHz between source register "register:R_21|Q[0]" and destination register "register:R_21|Q[3]" (period= 26.2 ns)
+    Info: + Longest register to register delay is 22.600 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_C22; Fanout = 6; REG Node = 'register:R_21|Q[0]'
+        Info: 2: + IC(0.600 ns) + CELL(2.300 ns) = 2.900 ns; Loc. = LC4_C22; Fanout = 1; COMB Node = 'overflow_control:OF_1|LessThan0~6'
+        Info: 3: + IC(2.200 ns) + CELL(2.300 ns) = 7.400 ns; Loc. = LC8_C23; Fanout = 8; COMB Node = 'overflow_control:OF_1|LessThan0~8'
+        Info: 4: + IC(2.400 ns) + CELL(2.300 ns) = 12.100 ns; Loc. = LC6_C21; Fanout = 4; COMB Node = 'overflow_control:OF_1|result[0]~4'
+        Info: 5: + IC(0.600 ns) + CELL(1.800 ns) = 14.500 ns; Loc. = LC7_C21; Fanout = 1; COMB Node = 'ladder_snake:LS_1|Equal0~0'
+        Info: 6: + IC(2.200 ns) + CELL(1.800 ns) = 18.500 ns; Loc. = LC5_C22; Fanout = 8; COMB Node = 'ladder_snake:LS_1|Equal0~1'
+        Info: 7: + IC(2.400 ns) + CELL(1.700 ns) = 22.600 ns; Loc. = LC5_C23; Fanout = 6; REG Node = 'register:R_21|Q[3]'
+        Info: Total cell delay = 12.200 ns ( 53.98 % )
+        Info: Total interconnect delay = 10.400 ns ( 46.02 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "switch" to destination register is 5.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_125; Fanout = 10; CLK Node = 'switch'
+            Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC5_C23; Fanout = 6; REG Node = 'register:R_21|Q[3]'
+            Info: Total cell delay = 2.800 ns ( 52.83 % )
+            Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+        Info: - Longest clock path from clock "switch" to source register is 5.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_125; Fanout = 10; CLK Node = 'switch'
+            Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC2_C22; Fanout = 6; REG Node = 'register:R_21|Q[0]'
+            Info: Total cell delay = 2.800 ns ( 52.83 % )
+            Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Micro setup delay of destination is 2.500 ns
+Info: Clock "push" has Internal fmax of 14.49 MHz between source register "register:R_12|Q[0]" and destination register "winner[0]~reg0" (period= 69.0 ns)
+    Info: + Longest register to register delay is 30.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C16; Fanout = 2; REG Node = 'register:R_12|Q[0]'
+        Info: 2: + IC(2.300 ns) + CELL(2.300 ns) = 4.600 ns; Loc. = LC2_C15; Fanout = 1; COMB Node = 'overflow_control:OF_2|LessThan0~6'
+        Info: 3: + IC(2.200 ns) + CELL(2.300 ns) = 9.100 ns; Loc. = LC4_C14; Fanout = 8; COMB Node = 'overflow_control:OF_2|LessThan0~8'
+        Info: 4: + IC(0.600 ns) + CELL(2.300 ns) = 12.000 ns; Loc. = LC7_C14; Fanout = 4; COMB Node = 'overflow_control:OF_2|result[0]~4'
+        Info: 5: + IC(0.600 ns) + CELL(1.800 ns) = 14.400 ns; Loc. = LC6_C14; Fanout = 1; COMB Node = 'ladder_snake:LS_2|Equal0~0'
+        Info: 6: + IC(2.200 ns) + CELL(1.800 ns) = 18.400 ns; Loc. = LC1_C15; Fanout = 8; COMB Node = 'ladder_snake:LS_2|Equal0~1'
+        Info: 7: + IC(0.600 ns) + CELL(2.300 ns) = 21.300 ns; Loc. = LC3_C15; Fanout = 1; COMB Node = 'winner~6'
+        Info: 8: + IC(2.200 ns) + CELL(1.200 ns) = 24.700 ns; Loc. = LC6_C13; Fanout = 1; COMB Node = 'winner~15'
+        Info: 9: + IC(0.000 ns) + CELL(1.500 ns) = 26.200 ns; Loc. = LC7_C13; Fanout = 2; COMB Node = 'winner~9'
+        Info: 10: + IC(0.600 ns) + CELL(2.300 ns) = 29.100 ns; Loc. = LC1_C13; Fanout = 2; COMB Node = 'always1~0'
+        Info: 11: + IC(0.600 ns) + CELL(1.200 ns) = 30.900 ns; Loc. = LC5_C13; Fanout = 1; REG Node = 'winner[0]~reg0'
+        Info: Total cell delay = 19.000 ns ( 61.49 % )
+        Info: Total interconnect delay = 11.900 ns ( 38.51 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "push" to destination register is 5.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+            Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC5_C13; Fanout = 1; REG Node = 'winner[0]~reg0'
+            Info: Total cell delay = 2.800 ns ( 52.83 % )
+            Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+        Info: - Longest clock path from clock "push" to source register is 5.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+            Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC7_C16; Fanout = 2; REG Node = 'register:R_12|Q[0]'
+            Info: Total cell delay = 2.800 ns ( 52.83 % )
+            Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Micro setup delay of destination is 2.500 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "winner[0]~reg0" (data pin = "push", clock pin = "push") is 14.600 ns
+    Info: + Longest pin to register delay is 17.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+        Info: 2: + IC(2.700 ns) + CELL(2.300 ns) = 7.800 ns; Loc. = LC3_C15; Fanout = 1; COMB Node = 'winner~6'
+        Info: 3: + IC(2.200 ns) + CELL(1.200 ns) = 11.200 ns; Loc. = LC6_C13; Fanout = 1; COMB Node = 'winner~15'
+        Info: 4: + IC(0.000 ns) + CELL(1.500 ns) = 12.700 ns; Loc. = LC7_C13; Fanout = 2; COMB Node = 'winner~9'
+        Info: 5: + IC(0.600 ns) + CELL(2.300 ns) = 15.600 ns; Loc. = LC1_C13; Fanout = 2; COMB Node = 'always1~0'
+        Info: 6: + IC(0.600 ns) + CELL(1.200 ns) = 17.400 ns; Loc. = LC5_C13; Fanout = 1; REG Node = 'winner[0]~reg0'
+        Info: Total cell delay = 11.300 ns ( 64.94 % )
+        Info: Total interconnect delay = 6.100 ns ( 35.06 % )
+    Info: + Micro setup delay of destination is 2.500 ns
+    Info: - Shortest clock path from clock "push" to destination register is 5.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+        Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC5_C13; Fanout = 1; REG Node = 'winner[0]~reg0'
+        Info: Total cell delay = 2.800 ns ( 52.83 % )
+        Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+Info: tco from clock "push" to destination pin "led_16_2[8]" through register "register:R_12|Q[0]" is 43.100 ns
+    Info: + Longest clock path from clock "push" to source register is 5.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+        Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC7_C16; Fanout = 2; REG Node = 'register:R_12|Q[0]'
+        Info: Total cell delay = 2.800 ns ( 52.83 % )
+        Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Longest register to pin delay is 36.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C16; Fanout = 2; REG Node = 'register:R_12|Q[0]'
+        Info: 2: + IC(2.300 ns) + CELL(2.300 ns) = 4.600 ns; Loc. = LC2_C15; Fanout = 1; COMB Node = 'overflow_control:OF_2|LessThan0~6'
+        Info: 3: + IC(2.200 ns) + CELL(2.300 ns) = 9.100 ns; Loc. = LC4_C14; Fanout = 8; COMB Node = 'overflow_control:OF_2|LessThan0~8'
+        Info: 4: + IC(0.600 ns) + CELL(2.300 ns) = 12.000 ns; Loc. = LC7_C14; Fanout = 4; COMB Node = 'overflow_control:OF_2|result[0]~4'
+        Info: 5: + IC(0.600 ns) + CELL(1.800 ns) = 14.400 ns; Loc. = LC6_C14; Fanout = 1; COMB Node = 'ladder_snake:LS_2|Equal0~0'
+        Info: 6: + IC(2.200 ns) + CELL(1.800 ns) = 18.400 ns; Loc. = LC1_C15; Fanout = 8; COMB Node = 'ladder_snake:LS_2|Equal0~1'
+        Info: 7: + IC(2.700 ns) + CELL(2.300 ns) = 23.400 ns; Loc. = LC1_C20; Fanout = 16; COMB Node = 'ladder_snake:LS_2|outt[3]~14'
+        Info: 8: + IC(3.500 ns) + CELL(2.300 ns) = 29.200 ns; Loc. = LC3_A16; Fanout = 1; COMB Node = 'decoder:DEC_2|Decoder0~8'
+        Info: 9: + IC(2.400 ns) + CELL(5.100 ns) = 36.700 ns; Loc. = PIN_100; Fanout = 0; PIN Node = 'led_16_2[8]'
+        Info: Total cell delay = 20.200 ns ( 55.04 % )
+        Info: Total interconnect delay = 16.500 ns ( 44.96 % )
+Info: Longest tpd from source pin "push" to destination pin "led_16_1[0]" is 21.000 ns
+    Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+    Info: 2: + IC(2.500 ns) + CELL(2.300 ns) = 7.600 ns; Loc. = LC3_C19; Fanout = 16; COMB Node = 'ladder_snake:LS_1|outt[1]~13'
+    Info: 3: + IC(3.400 ns) + CELL(2.300 ns) = 13.300 ns; Loc. = LC4_C3; Fanout = 1; COMB Node = 'decoder:DEC_1|Decoder0~0'
+    Info: 4: + IC(2.600 ns) + CELL(5.100 ns) = 21.000 ns; Loc. = PIN_99; Fanout = 0; PIN Node = 'led_16_1[0]'
+    Info: Total cell delay = 12.500 ns ( 59.52 % )
+    Info: Total interconnect delay = 8.500 ns ( 40.48 % )
+Info: th for register "register:R_21|Q[3]" (data pin = "push", clock pin = "switch") is 0.300 ns
+    Info: + Longest clock path from clock "switch" to destination register is 5.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_125; Fanout = 10; CLK Node = 'switch'
+        Info: 2: + IC(2.500 ns) + CELL(0.000 ns) = 5.300 ns; Loc. = LC5_C23; Fanout = 6; REG Node = 'register:R_21|Q[3]'
+        Info: Total cell delay = 2.800 ns ( 52.83 % )
+        Info: Total interconnect delay = 2.500 ns ( 47.17 % )
+    Info: + Micro hold delay of destination is 1.600 ns
+    Info: - Shortest pin to register delay is 6.600 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_55; Fanout = 26; CLK Node = 'push'
+        Info: 2: + IC(2.100 ns) + CELL(1.700 ns) = 6.600 ns; Loc. = LC5_C23; Fanout = 6; REG Node = 'register:R_21|Q[3]'
+        Info: Total cell delay = 4.500 ns ( 68.18 % )
+        Info: Total interconnect delay = 2.100 ns ( 31.82 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 194 megabytes
+    Info: Processing ended: Thu Nov 26 19:12:38 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
