@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="trial_2">
+		<CBX_INST_ENTRY INSTANCE_NAME="|trial_2|adder:do_addition|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_njh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|trial_2|adder:do_addition|lpm_add_sub:Add1" CBX_FILE_NAME="add_sub_njh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|trial_2|counter:produce_dice|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_anh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
