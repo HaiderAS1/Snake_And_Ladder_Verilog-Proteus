@@ -2,6 +2,8 @@
 
 To be Documented Soon.
 
+Please Read the PDF file associated to understand the implementation.
+
 Redistributable under Apache License .
 
 ©SM Haider Ali Shuvo EEE , BUET
